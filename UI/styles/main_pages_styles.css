@@ -1,0 +1,186 @@
+/****
+**This file contains the CSS for the main pages such as the view_ride_offers page
+****/
+
+body {
+    color: #526066;
+}
+
+h2, h3 {
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/*
+* -- HEADER --
+* Styles the heading at the top of the page.
+*/
+.heading-container {
+    background: transparent url("../img/carpooling.jpg") 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 3em;
+    display: table;
+}
+
+    .heading {
+        display: table-cell;
+        vertical-align: middle;
+        margin-bottom: 0;
+        font-family: Algerian, sans-serif;
+        /*font-weight: bold;*/
+        color: #5544d4;
+        font-size: 2em;
+        border-radius: 5px;
+        line-height: 1em;
+        /*color: white;*/
+        font-weight: 200;
+        text-shadow: 0 1px 1px black;
+    }
+
+    .sub-heading {
+        display: table-row;
+        vertical-align: middle;
+        margin-bottom: 0;
+        /*font-weight: bold;*/
+        font-size: 1.5em;
+        color: rgba(255,123,6,0.62);
+        font-weight: 500;
+        text-shadow: 0 1px 1px black;
+    }
+
+
+/*
+* -- GRID --
+This is the grid that contains the details about the rides
+*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: white;
+    padding: 10px;
+    grid-gap: 10px 10px;
+}
+
+.grid-item {
+    /*background-color: rgba(255,123,6,0.8);*/
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+    padding: 20px;
+    font-size: 10px;
+    text-align: center;
+    width: 80%;
+}
+
+.ride-offer-details {
+    border: 1px solid #ddd;
+    margin: 0 0.5em 2em;
+    padding: 0 0 3em;
+}
+
+.ride-offer-header {
+    background: #519251;
+    color: #fff;
+}
+    .ride-offer-header h2 {
+        margin: 0;
+        padding-top: 2em;
+        font-size: 1em;
+        font-weight: normal;
+
+    }
+
+.city-name {
+    font-size: 300%;
+    margin: 0.2em 0 0;
+    font-weight: 100;
+}
+    .city-name span {
+        display: block;
+        text-transform: uppercase;
+        font-size: 40%;
+        padding-bottom: 2em;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+        *color: #fff;
+    }
+
+/*
+*--RIDE DETAILS LIST--
+*/
+.details-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.details-list li {
+    padding: 0.8em 0;
+    background: #f7f7f7;
+    font-size: x-large;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+/*--Buttons--.
+*TODO: try and make them responsive.
+*/
+.offer-button {
+    text-align: center;
+    /*padding-bottom: 2px;*/
+    margin-bottom: 3em;
+    margin-top: 3em;
+    font-size: 100%;
+}
+a.button {
+    background: rgba(255,123,6,0.62);
+    color: #5544d4;
+    border-radius: 5px;
+    font-size: x-large;
+    padding: 0.5em 2em;
+    left: 50%;
+    margin-right: 30px;
+    margin-left: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+a.button-choose {
+    background: rgba(255,123,6,0.62);
+    font-size: x-large;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+}
+
+
+/*
+Make the page responsive (I'm not yet sure what to do about the buttons)
+*/
+
+/*
+*Slightly adjust heading size and add vertical space between ride-offers.
+*/
+@media(min-width: 767px) {
+
+    .heading {
+        font-size: 4em;
+    }
+    .ride-offer-details {
+        margin-bottom: 0;
+    }
+
+}
+
+/*
+* On larger devices, increase the heading height and font-size.
+*/
+@media (min-width: 480px) {
+    .heading-container {
+        height: 400px;
+    }
+    .heading {
+        font-size: 4em;
+    }
+}
