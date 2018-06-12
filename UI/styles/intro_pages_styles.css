@@ -1,0 +1,133 @@
+/****
+**This file contains the CSS for the intro pages i.e the landing page (index.html), the login page, the sign up page and the about page**
+****/
+
+/*
+ * -- THE INTRO PAGES LAYOUT --
+ * This is the main layout with the background image and logo.
+ */
+
+.intro-container {
+    background: url("../img/carpooling.jpg");
+    background-size: cover;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+}
+
+.intro-container .intro {
+    /* absolute center .intro within .intro-container */
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    background: rgba(255,255,255,0.18);
+    top: 0; left: 0; bottom: 0; right: 0;
+    /*border: 3px solid black;*/
+    /*background-color: rgba(100,98,88,0.35);*/
+    opacity: 1;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: x-large;
+}
+
+/* This is the main heading/logo that contains the words "Ride My Way" */
+.intro-heading {
+    font-family: Algerian, sans-serif;
+    /*font-weight: bold;*/
+    color: #5544d4;
+    padding: 1em 1.6em;
+    font-weight: 200;
+    border-radius: 5px;
+    line-height: 1em;
+    text-align: center;
+}
+
+/* This is for the info/promotion text */
+.intro-info {
+    color: rgba(255,123,6,0.62);
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/*This is for the login div used on the login and sign up pages*/
+.intro-container .form {
+    position: absolute;
+    z-index: 1;
+    background: rgba(255,255,255,0.18);
+    /*max-width: 360px;*/
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    padding: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: x-large;
+    top: 0; left: 0; bottom: 0; right: 0;
+    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 60%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.form .message a {
+    color: rgba(255,123,6, 0.62);
+    text-decoration: none;
+}
+
+
+/*Make the buttons look pretty*/
+a.button {
+    background: rgba(255,123,6,0.62);
+    color: #5544d4;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    font-size: 80%;
+}
+
+.about-button {
+    position: absolute;
+    right: 0;
+}
+
+
+/*
+* This is for the page to look better on a variety of devices
+*/
+
+/*On tablets and other medium-sized device.*/
+@media (min-width: 48em) {
+    .intro {
+        width: 50%;
+        height: 50%;
+    }
+
+    .intro-heading {
+        font-size: 250%;
+    }
+}
+
+/*On desktops and larger devices*/
+@media (min-width: 78em) {
+    /* Increase the size of the words "Ride My Way" */
+    .intro-heading {
+        font-size: 300%;
+    }
+}
