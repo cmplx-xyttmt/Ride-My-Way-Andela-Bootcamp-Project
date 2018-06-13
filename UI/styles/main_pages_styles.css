@@ -126,6 +126,25 @@ This is the grid that contains the details about the rides
     border-bottom: 1px solid #e7e7e7;
 }
 
+/*
+* --RIDE REQUESTS--
+* Ride requests look a little different from ride offers
+*/
+.ride-request-details {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #ddd;
+    margin: 0 0.5em 2em;
+    padding: 0 0 3em;
+}
+
+.requester-name {
+    text-decoration: none;
+    font-size: 200%;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+
 /*--Buttons--
 */
 .offer-button {
@@ -171,6 +190,25 @@ a.button-choose {
     padding: 0.2% 2%;
     text-decoration: none;
 }
+
+.accept-button {
+    background-color: green;
+    opacity: 0.62;
+    font-size: 150%;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    text-decoration: none;
+}
+
+.reject-button {
+    background-color: red;
+    opacity: 0.62;
+    font-size: 150%;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    text-decoration: none;
+}
+
 
 /*
 * --FORMS--
