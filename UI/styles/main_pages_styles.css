@@ -172,6 +172,30 @@ a.button-choose {
     text-decoration: none;
 }
 
+/*
+* --FORMS--
+*For pages with forms
+*/
+.form-container {
+    margin-top: 0;
+    height: 430px;
+}
+
+.form-container .form {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    background: rgba(0,0,0,0.18);
+    opacity: 1;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: medium;
+}
+
+.form-page .heading-container {
+    margin-bottom: 0;
+    height: 200px;
+}
 
 /*
 Make the page responsive (I'm not yet sure what to do about the buttons)
