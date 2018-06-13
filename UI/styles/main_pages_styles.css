@@ -144,6 +144,12 @@ This is the grid that contains the details about the rides
     font-weight: 400;
 }
 
+.profile-container {
+    /*display: table;*/
+    background-color: white;
+    text-align: center;
+    horiz-align: center;
+}
 
 /*--Buttons--
 */
