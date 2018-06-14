@@ -19,7 +19,7 @@ h2, h3 {
 * Styles the heading at the top of the page.
 */
 .heading-container {
-    background: transparent url("../img/carpooling.jpg") 0 0 no-repeat fixed;
+    background: transparent url("../img/car.jpg") 0 0 no-repeat fixed;
     text-align: center;
     background-size: cover;
     height: 200px;

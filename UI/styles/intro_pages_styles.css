@@ -8,7 +8,7 @@
  */
 
 .intro-container {
-    background: url("../img/carpooling.jpg");
+    background: url("../img/car.jpg");
     background-size: cover;
     z-index: 1;
     overflow: hidden;
@@ -49,7 +49,8 @@
 
 /* This is for the info/promotion text */
 .intro-info {
-    color: rgba(255,123,6,0.62);
+    color: rgba(255,123,6, 1);
+    /*color: white;*/
     letter-spacing: 0.05em;
     opacity: 0.8;
 }
