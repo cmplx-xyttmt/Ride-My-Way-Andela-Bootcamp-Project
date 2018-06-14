@@ -6,6 +6,7 @@ body {
     color: #526066;
     margin: 0;
     padding: 0;
+    background: rgba(255,255,255,0.4);
 }
 
 h2, h3 {
@@ -13,7 +14,7 @@ h2, h3 {
     text-transform: uppercase;
     font-weight: 600;
 }
-
+/**/
 /*
 * -- HEADER --
 * Styles the heading at the top of the page.
@@ -34,7 +35,8 @@ h2, h3 {
         margin-bottom: 0;
         font-family: Algerian, sans-serif;
         /*font-weight: bold;*/
-        color: #5544d4;
+        /*color: #5544d4;*/
+         color: #d70040;
         font-size: 2em;
         border-radius: 5px;
         line-height: 1em;
@@ -49,7 +51,7 @@ h2, h3 {
         margin-bottom: 0;
         /*font-weight: bold;*/
         font-size: 1.5em;
-        color: rgba(255,123,6,0.62);
+        color: rgba(255,255,255,1);
         font-weight: 500;
         text-shadow: 0 1px 1px black;
     }
@@ -62,7 +64,7 @@ This is the grid that contains the details about the rides
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: white;
+    /*background-color: white;*/
     padding: 10px;
     grid-gap: 10px 10px;
 }
@@ -160,8 +162,8 @@ This is the grid that contains the details about the rides
     font-size: 100%;
 }
 a.button {
-    background: rgba(255,123,6,0.62);
-    color: #5544d4;
+    background: rgba(0,0,0,0.2);
+    color: #d70040;
     border-radius: 5px;
     font-size: 100%;
     padding: 0.5em 2em;
@@ -173,12 +175,17 @@ a.button {
     text-decoration: none;
 }
 
-a.button-choose {
-    background: rgba(255,123,6,0.62);
+a.button-choose, a.button-head {
+    background: rgba(0,0,0,0.2);
+    color: #d70040;
     font-size: 150%;
     border-radius: 5px;
     padding: 0.5em 2em;
     text-decoration: none;
+}
+
+a.button:hover, a.button-choose:hover, a.heading-button:hover {
+    background-color: rgba(0,0,0,0.3);
 }
 
 .heading-button {
@@ -188,13 +195,8 @@ a.button-choose {
     text-transform: capitalize;
 }
 
-.button-head {
-    background: rgba(255,123,6,0.62);
-    color: #5544d4;
-    border-radius: 5px;
-    font-size: 150%;
+a.button-head {
     padding: 0.2% 2%;
-    text-decoration: none;
 }
 
 .accept-button {
@@ -244,7 +246,7 @@ a.button-choose {
 label {
     display: inline-block;
     width: 140px;
-    text-align: left;
+    text-align: right;
 }
 
 .ride-offer-form {

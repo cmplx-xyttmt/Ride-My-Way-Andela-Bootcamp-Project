@@ -25,7 +25,8 @@
     height: 100%;
     margin: auto;
     position: absolute;
-    background: rgba(255,255,255,0.18);
+    /*background: rgba(255,255,255,0.18);*/
+    background: rgba(0,0,0,0.4);
     top: 0; left: 0; bottom: 0; right: 0;
     /*border: 3px solid black;*/
     /*background-color: rgba(100,98,88,0.35);*/
@@ -39,7 +40,8 @@
 .intro-heading {
     font-family: Algerian, sans-serif;
     /*font-weight: bold;*/
-    color: #5544d4;
+    /*color: #5544d4;*/
+    color: #d70040;
     padding: 1em 1.6em;
     font-weight: 200;
     border-radius: 5px;
@@ -49,7 +51,8 @@
 
 /* This is for the info/promotion text */
 .intro-info {
-    color: rgba(255,123,6, 1);
+    /*color: rgba(255,123,6, 1);*/
+    color: rgba(255,255,255,1);
     /*color: white;*/
     letter-spacing: 0.05em;
     opacity: 0.8;
@@ -59,7 +62,7 @@
 .intro-container .form {
     position: absolute;
     z-index: 1;
-    background: rgba(255,255,255,0.18);
+    background: rgba(0,0,0,0.4);
     /*max-width: 360px;*/
     width: 80%;
     height: 100%;
@@ -85,22 +88,27 @@
 
 .form .message {
     margin: 15px 0 0;
-    color: #b3b3b3;
+    color: white;
     font-size: 12px;
 }
 .form .message a {
-    color: rgba(255,123,6, 0.62);
+    color: #d70040;
     text-decoration: none;
 }
 
 
 /*Make the buttons look pretty*/
 a.button {
-    background: rgba(255,123,6,0.62);
-    color: #5544d4;
+    background: rgba(255,255,255,0.62);
+    color: #d70040;
     border-radius: 5px;
     padding: 0.5em 2em;
     font-size: 80%;
+    text-decoration: none;
+}
+
+a.button:hover {
+    background-color: rgba(219,243,255,0.62);
 }
 
 .about-button {
