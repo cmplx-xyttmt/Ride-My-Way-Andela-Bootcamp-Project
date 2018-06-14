@@ -222,7 +222,7 @@ a.button-choose {
 */
 .form-container {
     margin-top: 0;
-    height: 430px;
+    height: 445px;
 }
 
 .form-container .form {
@@ -239,6 +239,16 @@ a.button-choose {
 .form-page .heading-container {
     margin-bottom: 0;
     height: 200px;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+    text-align: left;
+}
+
+.ride-offer-form {
+    padding: 5%;
 }
 
 /*
