@@ -282,3 +282,24 @@ Make the page responsive (I'm not yet sure what to do about the buttons)
         font-size: 4em;
     }
 }
+
+/*
+* Prevent buttons from overlapping on smaller devices
+*/
+@media (max-width: 480px) {
+    .offer-button {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    a.button {
+        /*padding: 0 0.5em;*/
+        font-size: 50%;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .grid-container {
+        grid-template-columns: auto;
+    }
+}
