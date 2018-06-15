@@ -140,3 +140,16 @@ a.button:hover {
         font-size: 300%;
     }
 }
+
+/*
+* Decrease the font-size of the headings of the landing, login, sign-up pages on smaller devices
+*/
+@media (max-width: 480px) {
+    .intro-container .intro {
+        font-size: medium;
+    }
+
+    .intro-container .form {
+        font-size: medium;
+    }
+}
