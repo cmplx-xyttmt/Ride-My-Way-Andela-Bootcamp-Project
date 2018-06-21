@@ -1,4 +1,7 @@
-from request import *
+from app.request import *
+import sys
+
+sys.path.append("../..")
 
 
 class Ride:
@@ -11,4 +14,3 @@ class Ride:
 
     def add_request(self, request):
         self.requests.append(request)
-

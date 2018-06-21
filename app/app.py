@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, abort, make_response, request
-from ride import Ride
+import sys
 
+sys.path.append("../..")
 app = Flask(__name__)
-rides = [Ride("Isaac", "Kampala", "Wakiso", 10000), Ride("Rose", "Masaka", "Mpigi", 10000)]
+rides = []
 
 
 @app.route('/ridemyway/api/v1/rides', methods=['GET'])
