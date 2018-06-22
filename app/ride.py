@@ -13,3 +13,10 @@ class Ride:
 
     def add_request(self, request):
         self.requests.append(request)
+
+    def __eq__(self, other):
+        return self.name == other.name and \
+            self.origin == other.origin and \
+            self.destination == other.destination and \
+            self.price == other.price and \
+            self.requests == other.requests

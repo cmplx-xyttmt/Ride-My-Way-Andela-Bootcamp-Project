@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, abort, request
-from ride import Ride
+from app.ride import Ride
 import sys
 
 sys.path.append("../..")

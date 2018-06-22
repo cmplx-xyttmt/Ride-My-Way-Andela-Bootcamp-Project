@@ -42,4 +42,11 @@ class TestAPIEndpoints(unittest.TestCase):
 
     def test_create_ride(self):
         """Tests whether the ride created by client exists in the rides list"""
-
+        new_ride_offer = ride.Ride('Isaac', "Kampala", "Arua", 10000)
+        response = self.client.post("ridemyway/api/v1/rides",
+                                    content_type="application/json",
+                                    data=json.dumps(new_ride_offer.__dict__))
+        self.assertEqual(response.status_code, 201)  # Ensure status code is the correct one.
+        data = json.loads(str(response.data.decode()))
+        self.assertEqual(data['ride'], new_ride_offer.__dict__)  # Ensure data returned is equal to data sent.
+        self.assertIn(new_ride_offer, rides)  # Ensure ride offer is in list of rides.
