@@ -1,7 +1,7 @@
 import unittest
 import sys
 import json
-from app import app, ride, request
+from app import app, ride
 from app.app import rides
 
 sys.path.append("../..")

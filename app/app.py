@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, abort, request
 from app.ride import Ride
+from app.request import RideRequest
 import sys
 
-sys.path.append("../..")
+sys.path.append("..")
 app = Flask(__name__)
 rides = []
 
@@ -36,7 +37,13 @@ def create_ride():
 
 @app.route('/ridemyway/api/v1/rides/<int:ride_id>/requests', methods=['POST'])
 def ride_request(ride_id):
-    pass
+    if not request.is_json:
+        abort(400)
+    json_request = request.get_json()
+    if 'name' not in json_request:
+        abort(400)
+    ride_request = RideRequest(json_request['name'])
+
 
 
 if __name__ == '__main__':
