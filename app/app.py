@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, abort, request
-from ride import Ride
-from request import RideRequest
+from app.ride import Ride
+from app.ride_request import RideRequest
 
 
 app = Flask(__name__)

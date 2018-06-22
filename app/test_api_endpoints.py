@@ -1,7 +1,8 @@
 import unittest
 import json
-from app import app, rides
-import ride, request
+from app.app import app, rides
+import app.ride as ride
+import app.ride_request as ride_request
 
 
 class TestAPIEndpoints(unittest.TestCase):
@@ -50,7 +51,7 @@ class TestAPIEndpoints(unittest.TestCase):
 
     def test_ride_request(self):
         """Tests whether a ride request has been successfully created"""
-        new_ride_request = request.RideRequest('Rose')
+        new_ride_request = ride_request.RideRequest('Rose')
         response = self.client.post("ridemyway/api/v1/rides/{}/requests".format(1),
                                     content_type="application/json",
                                     data=json.dumps(new_ride_request.__dict__))
