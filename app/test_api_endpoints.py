@@ -57,7 +57,8 @@ class TestAPIEndpoints(unittest.TestCase):
         self.assertEqual(response.status_code, 200)  # Ensure status code is correct
         data = json.loads(str(response.data.decode()))
         self.assertEqual(data['request'], new_ride_request.__dict__)  # Ensure data sent is equal to data returned
-        self.assertEqual(rides[0].request_exists(new_ride_request), True)  # Ensure that the ride request is in list of ride requests
+        # Ensure that the ride request is in list of ride requests
+        self.assertEqual(rides[0].request_exists(new_ride_request), True)
 
 
 if __name__ == '__main__':
