@@ -1,7 +1,7 @@
 import unittest
 import json
 from app import app, rides
-import ride
+import ride, request
 
 
 class TestAPIEndpoints(unittest.TestCase):
@@ -47,6 +47,17 @@ class TestAPIEndpoints(unittest.TestCase):
         data = json.loads(str(response.data.decode()))
         self.assertEqual(data['ride'], new_ride_offer.__dict__)  # Ensure data returned is equal to data sent.
         self.assertIn(new_ride_offer, rides)  # Ensure ride offer is in list of rides.
+
+    def test_ride_request(self):
+        """Tests whether a ride request has been successfully created"""
+        new_ride_request = request.RideRequest('Rose')
+        response = self.client.post("ridemyway/api/v1/rides/{}/requests".format(1),
+                                    content_type="application/json",
+                                    data=json.dumps(new_ride_request.__dict__))
+        self.assertEqual(response.status_code, 200)  # Ensure status code is correct
+        data = json.loads(str(response.data.decode()))
+        self.assertEqual(data['request'], new_ride_request.__dict__)  # Ensure data sent is equal to data returned
+        self.assertEqual(rides[0].request_exists(new_ride_request), True)  # Ensure that the ride request is in list of ride requests
 
 
 if __name__ == '__main__':

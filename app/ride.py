@@ -14,6 +14,9 @@ class Ride:
     def add_request(self, request):
         self.requests.append(request)
 
+    def request_exists(self, request):
+        return request in self.requests
+
     def __eq__(self, other):
         return self.name == other.name and \
             self.origin == other.origin and \

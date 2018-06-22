@@ -9,7 +9,7 @@ rides = []
 
 @app.route('/ridemyway/api/v1/rides', methods=['GET'])
 def get_rides():
-    rides_as_dicts = [ride.__dict__ for ride in rides]
+    rides_as_dicts = [convert_ride_offer(ride) for ride in rides]
     return jsonify({'rides': rides_as_dicts})
 
 
@@ -18,7 +18,15 @@ def get_ride(ride_id):
     if ride_id > len(rides):
         abort(404)
     ride = rides[ride_id - 1]
-    return jsonify({'ride': ride.__dict__})
+    return jsonify({'ride': convert_ride_offer(ride)})
+
+
+def convert_ride_offer(ride_offer):
+    """Converts ride offer to json serializable object by first converting requests to dict object"""
+    ride_requests_list = [ride_req.__dict__ for ride_req in ride_offer.requests]
+    ride_offer_dict = ride_offer.__dict__
+    ride_offer_dict["requests"] = ride_requests_list
+    return ride_offer_dict
 
 
 @app.route('/ridemyway/api/v1/rides', methods=['POST'])
@@ -31,7 +39,7 @@ def create_ride():
 
     ride = Ride(json_request['name'], json_request['origin'], json_request['destination'], json_request.get('price', 0))
     rides.append(ride)
-    return jsonify({'ride': ride.__dict__}), 201
+    return jsonify({'ride': convert_ride_offer(ride)}), 201
 
 
 @app.route('/ridemyway/api/v1/rides/<int:ride_id>/requests', methods=['POST'])
@@ -43,9 +51,9 @@ def ride_request(ride_id):
         abort(400)
     if ride_id > len(rides):
         abort(400)
-
-    rides[ride_id - 1].requests.append(RideRequest(json_request['name']))
-    return jsonify({'request': ride_request.__dict__})
+    ride_req = RideRequest(json_request['name'])
+    rides[ride_id - 1].add_request(ride_req)
+    return jsonify({'request': ride_req.__dict__})
 
 
 if __name__ == '__main__':
