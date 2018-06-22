@@ -1,4 +1,3 @@
-from app.request import *
 import sys
 
 sys.path.append("../..")

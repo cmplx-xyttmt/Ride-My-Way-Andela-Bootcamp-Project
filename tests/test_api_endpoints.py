@@ -39,3 +39,7 @@ class TestAPIEndpoints(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             data = json.loads(str(response.data.decode()))['ride']
             self.assertEqual(data, rides[i].__dict__)
+
+    def test_create_ride(self):
+        """Tests whether the ride created by client exists in the rides list"""
+
