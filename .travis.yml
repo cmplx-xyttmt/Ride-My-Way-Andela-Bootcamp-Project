@@ -1,3 +1,4 @@
 language: python
 python: 3.5.2
 script: python -m unittest discover && coverage run -m unittest discover && coverage report
+after_success: coveralls
