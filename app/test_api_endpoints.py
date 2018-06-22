@@ -1,17 +1,14 @@
 import unittest
-import sys
 import json
-from app import app, ride
-from app.app import rides
-
-sys.path.append("../..")
+from app import app, rides
+import ride
 
 
 class TestAPIEndpoints(unittest.TestCase):
 
     def setUp(self):
-        app.app.config['TESTING'] = True
-        self.client = app.app.test_client()
+        app.config['TESTING'] = True
+        self.client = app.test_client()
         self.ride_offers = [
             ride.Ride("Isaac", "Mpererwe", "Kamwokya", 10000),
             ride.Ride("Rose", "Kampala Road", "Mpererwe", 15000),
@@ -50,3 +47,7 @@ class TestAPIEndpoints(unittest.TestCase):
         data = json.loads(str(response.data.decode()))
         self.assertEqual(data['ride'], new_ride_offer.__dict__)  # Ensure data returned is equal to data sent.
         self.assertIn(new_ride_offer, rides)  # Ensure ride offer is in list of rides.
+
+
+if __name__ == '__main__':
+    unittest.main()

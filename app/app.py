@@ -1,9 +1,8 @@
 from flask import Flask, jsonify, abort, request
-from app.ride import Ride
-from app.request import RideRequest
-import sys
+from ride import Ride
+from request import RideRequest
 
-sys.path.append("..")
+
 app = Flask(__name__)
 rides = []
 
@@ -42,8 +41,11 @@ def ride_request(ride_id):
     json_request = request.get_json()
     if 'name' not in json_request:
         abort(400)
-    ride_request = RideRequest(json_request['name'])
+    if ride_id > len(rides):
+        abort(400)
 
+    rides[ride_id - 1].requests.append(RideRequest(json_request['name']))
+    return jsonify({'request': ride_request.__dict__})
 
 
 if __name__ == '__main__':
