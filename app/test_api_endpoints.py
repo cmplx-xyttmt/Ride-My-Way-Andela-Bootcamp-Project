@@ -61,6 +61,18 @@ class TestAPIEndpoints(unittest.TestCase):
         # Ensure that the ride request is in list of ride requests
         self.assertEqual(rides[0].request_exists(new_ride_request), True)
 
+    def test_ride_not_found_error(self):
+        """Tests if the correct error message is returned when a wrong ride id is in the request"""
+        response = self.client.get("ridemyway/api/v1/rides/20")
+        self.assertEqual(response.status_code, 404)
+        data = json.loads(str(response.data.decode()))
+        self.assertEqual(data['error'], "Ride Not Found")
+
+        response = self.client.get("ridemyway/api/v1/rides/0")
+        self.assertEqual(response.status_code, 404)
+        data = json.loads(str(response.data.decode()))
+        self.assertEqual(data['error'], "Ride Not Found")
+
 
 if __name__ == '__main__':
     unittest.main()

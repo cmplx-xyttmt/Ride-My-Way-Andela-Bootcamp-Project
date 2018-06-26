@@ -58,7 +58,7 @@ def ride_request(ride_id):
 
 @app.errorhandler(404)
 def not_found(error):
-    return make_response(jsonify({"error": 'Ride Not found'}), 404)
+    return make_response(jsonify({"error": 'Ride Not Found'}), 404)
 
 
 @app.errorhandler(400)
