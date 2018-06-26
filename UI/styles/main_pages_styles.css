@@ -168,12 +168,19 @@ a.button {
 }
 
 a.button-choose, a.button-head {
-    background: rgba(0,0,0,0.2);
     color: #d70040;
     font-size: 150%;
     border-radius: 5px;
     padding: 0.5em 2em;
     text-decoration: none;
+}
+
+a.button-head {
+    background: rgba(255,255,255,0.62);
+}
+
+a.button-choose {
+    background: rgba(0,0,0,0.2);
 }
 
 a.button:hover, a.button-choose:hover, a.heading-button:hover {
@@ -182,7 +189,7 @@ a.button:hover, a.button-choose:hover, a.heading-button:hover {
 
 .heading-button {
     display: table-row;
-    text-align: right;
+    text-align: left;
     vertical-align: middle;
     text-transform: capitalize;
 }
