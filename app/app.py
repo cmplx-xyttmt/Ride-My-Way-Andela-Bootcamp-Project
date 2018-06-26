@@ -15,7 +15,7 @@ def get_rides():
 
 @app.route('/ridemyway/api/v1/rides/<int:ride_id>', methods=['GET'])
 def get_ride(ride_id):
-    if ride_id > len(rides):
+    if ride_id > len(rides) or ride_id <= 0:
         abort(404)
     ride = rides[ride_id - 1]
     return jsonify({'ride': convert_ride_offer(ride)})
@@ -49,7 +49,7 @@ def ride_request(ride_id):
     json_request = request.get_json()
     if 'name' not in json_request:
         abort(400)
-    if ride_id > len(rides):
+    if ride_id > len(rides) or ride_id <= 0:
         abort(400)
     ride_req = RideRequest(json_request['name'])
     rides[ride_id - 1].add_request(ride_req)
