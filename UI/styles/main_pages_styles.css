@@ -34,13 +34,10 @@ h2, h3 {
         vertical-align: middle;
         margin-bottom: 0;
         font-family: Algerian, sans-serif;
-        /*font-weight: bold;*/
-        /*color: #5544d4;*/
          color: #d70040;
         font-size: 2em;
         border-radius: 5px;
         line-height: 1em;
-        /*color: white;*/
         font-weight: 200;
         text-shadow: 0 1px 1px black;
     }
@@ -49,7 +46,6 @@ h2, h3 {
         display: table-row;
         vertical-align: middle;
         margin-bottom: 0;
-        /*font-weight: bold;*/
         font-size: 1.5em;
         color: rgba(255,255,255,1);
         font-weight: 500;
@@ -64,14 +60,11 @@ This is the grid that contains the details about the rides
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    /*background-color: white;*/
     padding: 10px;
     grid-gap: 10px 10px;
 }
 
 .grid-item {
-    /*background-color: rgba(255,123,6,0.8);*/
-    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
     padding: 20px;
     font-size: 10px;
     text-align: center;
@@ -147,7 +140,6 @@ This is the grid that contains the details about the rides
 }
 
 .profile-container {
-    /*display: table;*/
     background-color: white;
     text-align: center;
     horiz-align: center;
@@ -295,7 +287,6 @@ Make the page responsive (I'm not yet sure what to do about the buttons)
     }
 
     a.button {
-        /*padding: 0 0.5em;*/
         font-size: 50%;
         margin-right: 5px;
         margin-left: 5px;

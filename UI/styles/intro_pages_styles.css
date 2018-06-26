@@ -20,16 +20,12 @@
 }
 
 .intro-container .intro {
-    /* absolute center .intro within .intro-container */
     width: 80%;
     height: 100%;
     margin: auto;
     position: absolute;
-    /*background: rgba(255,255,255,0.18);*/
     background: rgba(0,0,0,0.4);
     top: 0; left: 0; bottom: 0; right: 0;
-    /*border: 3px solid black;*/
-    /*background-color: rgba(100,98,88,0.35);*/
     opacity: 1;
     text-align: center;
     text-transform: uppercase;
@@ -39,8 +35,6 @@
 /* This is the main heading/logo that contains the words "Ride My Way" */
 .intro-heading {
     font-family: Algerian, sans-serif;
-    /*font-weight: bold;*/
-    /*color: #5544d4;*/
     color: #d70040;
     padding: 1em 1.6em;
     font-weight: 200;
@@ -51,9 +45,7 @@
 
 /* This is for the info/promotion text */
 .intro-info {
-    /*color: rgba(255,123,6, 1);*/
     color: rgba(255,255,255,1);
-    /*color: white;*/
     letter-spacing: 0.05em;
     opacity: 0.8;
 }
@@ -63,7 +55,6 @@
     position: absolute;
     z-index: 1;
     background: rgba(0,0,0,0.4);
-    /*max-width: 360px;*/
     width: 80%;
     height: 100%;
     margin: auto;
@@ -72,7 +63,6 @@
     text-transform: uppercase;
     font-size: x-large;
     top: 0; left: 0; bottom: 0; right: 0;
-    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
 }
 .form input {
     font-family: "Roboto", sans-serif;
