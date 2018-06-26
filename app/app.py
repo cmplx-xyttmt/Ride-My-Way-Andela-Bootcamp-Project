@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort, request, make_response
 from app.ride import Ride
 from app.ride_request import RideRequest
 
@@ -50,10 +50,20 @@ def ride_request(ride_id):
     if 'name' not in json_request:
         abort(400)
     if ride_id > len(rides) or ride_id <= 0:
-        abort(400)
+        abort(404)
     ride_req = RideRequest(json_request['name'])
     rides[ride_id - 1].add_request(ride_req)
     return jsonify({'request': ride_req.__dict__})
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({"error": 'Ride Not found'}), 404)
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    return make_response(jsonify({"error": 'Bad request.'}), 400)
 
 
 if __name__ == '__main__':
