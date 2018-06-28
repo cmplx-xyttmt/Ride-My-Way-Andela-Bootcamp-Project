@@ -1,4 +1,9 @@
 language: python
 python: 3.5.2
+services:
+  -postgresql
+befor_script:
+  -psql -c 'create database ridemywaydb;' -U postgres
+  -python database_set_up.py
 script: pep8 app && python -m pytest && coverage run -m pytest && coverage report
 after_success: coveralls
