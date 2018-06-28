@@ -1,4 +1,4 @@
 language: python
 python: 3.5.2
-script: pep8 app && pylint app && python -m pytest && coverage run -m pytest && coverage report
+script: pep8 app && python -m pytest && coverage run -m pytest && coverage report
 after_success: coveralls
