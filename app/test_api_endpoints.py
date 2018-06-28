@@ -19,7 +19,8 @@ class TestAPIEndpoints(unittest.TestCase):
         rides.extend(self.ride_offers)
 
     def test_get_rides(self):
-        """Tests whether the ride offers inserted into rides exist in what the api endpoint returns"""
+        """Tests whether the ride offers inserted into
+        rides exist in what the api endpoint returns"""
         response = self.client.get("ridemyway/api/v1/rides")
         self.assertEqual(response.status_code, 200)
 
@@ -33,7 +34,8 @@ class TestAPIEndpoints(unittest.TestCase):
     def test_get_ride(self):
         """Tests whether user can retrieve a specific ride with a ride_id"""
         for i in range(len(rides)):
-            response = self.client.get("ridemyway/api/v1/rides/{}".format(i + 1))
+            response = self.client.get("ridemyway/api/v1/rides/{}"
+                                       .format(i + 1))
             self.assertEqual(response.status_code, 200)
             data = json.loads(str(response.data.decode()))['ride']
             self.assertEqual(data, rides[i].__dict__)
@@ -44,25 +46,27 @@ class TestAPIEndpoints(unittest.TestCase):
         response = self.client.post("ridemyway/api/v1/rides",
                                     content_type="application/json",
                                     data=json.dumps(new_ride_offer.__dict__))
-        self.assertEqual(response.status_code, 201)  # Ensure status code is the correct one.
+        self.assertEqual(response.status_code, 201)
         data = json.loads(str(response.data.decode()))
-        self.assertEqual(data['ride'], new_ride_offer.__dict__)  # Ensure data returned is equal to data sent.
-        self.assertIn(new_ride_offer, rides)  # Ensure ride offer is in list of rides.
+        self.assertEqual(data['ride'], new_ride_offer.__dict__)
+        self.assertIn(new_ride_offer, rides)
 
     def test_ride_request(self):
         """Tests whether a ride request has been successfully created"""
         new_ride_request = ride_request.RideRequest('Rose')
-        response = self.client.post("ridemyway/api/v1/rides/{}/requests".format(1),
+        response = self.client.post("ridemyway/api/v1/rides/{}/requests"
+                                    .format(1),
                                     content_type="application/json",
                                     data=json.dumps(new_ride_request.__dict__))
-        self.assertEqual(response.status_code, 200)  # Ensure status code is correct
+        self.assertEqual(response.status_code, 200)
         data = json.loads(str(response.data.decode()))
-        self.assertEqual(data['request'], new_ride_request.__dict__)  # Ensure data sent is equal to data returned
+        self.assertEqual(data['request'], new_ride_request.__dict__)
         # Ensure that the ride request is in list of ride requests
         self.assertEqual(rides[0].request_exists(new_ride_request), True)
 
     def test_ride_not_found_error(self):
-        """Tests if the correct error message is returned when a wrong ride id is in the request"""
+        """Tests if the correct error message is
+        returned when a wrong ride id is in the request"""
         response = self.client.get("ridemyway/api/v1/rides/20")
         self.assertEqual(response.status_code, 404)
         data = json.loads(str(response.data.decode()))

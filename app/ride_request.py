@@ -17,4 +17,6 @@ class RideRequest:
         return True
 
     def __eq__(self, other):
-        return self.name == other.name and self.accepted == other.accepted and self.rejected == other.rejected
+        return self.name == other.name and \
+               self.accepted == other.accepted and \
+               self.rejected == other.rejected
