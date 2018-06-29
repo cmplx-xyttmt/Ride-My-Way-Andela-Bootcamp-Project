@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, abort, request, make_response
 from app.ride import Ride
 from app.ride_request import RideRequest
+from app.users import User
 
 
 app = Flask(__name__)
@@ -63,6 +64,19 @@ def ride_request(ride_id):
     ride_req = RideRequest(json_request['name'])
     rides[ride_id - 1].add_request(ride_req)
     return jsonify({'request': ride_req.__dict__})
+
+
+@app.route('/ridemyway/api/v1/auth/signup', methods=['POST'])
+def signup():
+    username = request.json.get('username')
+    password = request.json.get('password')
+    if username is None or password is None:
+        abort(400, 'Missing arguments')
+    # TODO: Add a check for existing user
+    user = User(username=username)
+    user.hash_password(password)
+    user.add_new_user()
+    return jsonify({'username': user.username}), 201
 
 
 @app.errorhandler(404)
