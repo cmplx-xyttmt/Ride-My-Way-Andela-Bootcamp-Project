@@ -27,14 +27,11 @@ class User:
 
     def add_new_user(self):
         """Adds a new user to the database"""
-        sql = """INSERT INTO 
-                users (username, user_password, rides_taken, rides_given) 
-                VALUES (%s, %s, %s, %s)"""
+        sql = """INSERT INTO users (username, user_password, rides_taken, rides_given) VALUES (%s, %s, %s, %s)"""
         user_id = None
         self.initiate_connection()
         try:
-            self.cur.execute(sql,
-                             (self.username, self.password_hash, self.rides_given, self.rides_taken))
+            self.cur.execute(sql, (self.username, self.password_hash, self.rides_given, self.rides_taken))
             user_id = self.cur.fetchone()[0]
             self.conn.commit()
             self.cur.close()
