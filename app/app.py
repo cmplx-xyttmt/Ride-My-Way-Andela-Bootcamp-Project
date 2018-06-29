@@ -68,14 +68,22 @@ def ride_request(ride_id):
 
 @app.route('/ridemyway/api/v1/auth/signup', methods=['POST'])
 def signup():
-    username = request.json.get('username')
-    password = request.json.get('password')
+    if not request.is_json:
+        abort(400, 'Make sure your request contains json data')
+    json_request = request.get_json()
+    if 'username' not in json_request or 'password' not in json_request:
+        abort(400,
+              'Make sure you have a name and password attribute in your json request')
+
+    username = json_request['username']
+    password = json_request['password']
     if username is None or password is None:
         abort(400, 'Missing arguments')
     # TODO: Add a check for existing user
     user = User(username=username)
     user.hash_password(password)
-    user.add_new_user()
+    user_id = user.add_new_user()
+    print(user_id)
     return jsonify({'username': user.username}), 201
 
 

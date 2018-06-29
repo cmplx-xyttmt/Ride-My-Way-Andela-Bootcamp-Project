@@ -27,7 +27,8 @@ class User:
 
     def add_new_user(self):
         """Adds a new user to the database"""
-        sql = """INSERT INTO users (username, user_password, rides_taken, rides_given) VALUES (%s, %s, %s, %s)"""
+        sql = "INSERT  INTO users (username, user_password, rides_taken, rides_given)" \
+              "VALUES (%s, %s, %s, %s) RETURNING user_id"
         user_id = None
         self.initiate_connection()
         try:
@@ -36,7 +37,7 @@ class User:
             self.conn.commit()
             self.cur.close()
         except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
+            print("Error: ", error)
         finally:
             if self.conn is not None:
                 self.conn.close()
