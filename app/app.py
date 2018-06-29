@@ -10,7 +10,7 @@ rides = []
 @app.route('/ridemyway/api/v1/rides', methods=['GET'])
 def get_rides():
     rides_as_dicts = [convert_ride_offer(ride) for ride in rides]
-    return jsonify({'rides': rides_as_dicts})
+    return jsonify({'rides': rides_as_dicts}), 200
 
 
 @app.route('/ridemyway/api/v1/rides/<int:ride_id>', methods=['GET'])
@@ -18,7 +18,7 @@ def get_ride(ride_id):
     if ride_id > len(rides) or ride_id <= 0:
         abort(404, 'The ride id specified does not exist.')
     ride = rides[ride_id - 1]
-    return jsonify({'ride': convert_ride_offer(ride)})
+    return jsonify({'ride': convert_ride_offer(ride)}), 200
 
 
 def convert_ride_offer(ride_offer):

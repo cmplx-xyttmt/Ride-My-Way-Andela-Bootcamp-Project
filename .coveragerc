@@ -3,3 +3,4 @@ source=
     ./
 omit=
     ./venv/*
+    ./app/test_api_endpoints.py
